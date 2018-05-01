@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php require_once('app/index.php'); ?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,18 +17,14 @@
                 <div class="edit-todo">
                     <input class="btn btn-edit" type="button" value="Edit">
                 </div>
-                <div class="todo">
-                    <input class="hidden btn btn-delete" type="button" value="X">
-                    <input class="todo-checkbox" type="checkbox">
-                    <input type="text" name="todo" value="Watch Avengers">
-                    <input class="hidden btn btn-confirm" type="button" value="√">
-                </div>
-                <div class="todo">
-                    <input class="hidden btn btn-delete" type="button" value="X">
-                    <input class="todo-checkbox" type="checkbox">
-                    <input type="text" name="todo" value="Watch Captain Marvel">
-                    <input class="hidden btn btn-confirm" type="button" value="√">
-                </div>
+                <?php foreach ($movies as $movie) { ?>
+                    <div class="todo">
+                        <input class="hidden btn btn-delete" type="button" value="X">
+                        <input class="todo-checkbox" type="checkbox" checked="on">
+                        <input type="text" name="todo" value="<?php echo $movie ?>">
+                        <input class="hidden btn btn-confirm" type="button" value="√">
+                    </div>
+                <?php } ?>
             </div>
             <div class="todo create-todo">
                 <input class="btn btn-create" type="button" value="+">
